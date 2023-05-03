@@ -5,6 +5,11 @@ function obtenerMayor(x, y) {
    // Retornar el número más grande.
    // Si son iguales, retornar cualquiera de los dos.
    // Tu código:
+   if (x > y) {
+      return  x;
+   } else if (x < y) {
+      return  y;
+   } else return x;
 }
 
 function mayoriaDeEdad(edad) {
@@ -89,18 +94,27 @@ function esPrimo(num) {
    // [Pista 2]: puedes resolverlo utilizando un `bucle for`.
    // [Nota]: los números negativos, 0 y 1 NO son números primos.
    // Tu código:
+   if(num <= 1) return false;
+      for (let i = 2; i < num; i++) {
+   if(num % i === 0) return false;    
+   } return true;
 }
 
 function esVerdadero(valor) {
    // Si "valor" es verdadero retornar "Soy verdadero".
    // Caso contrario, retornar "Soy falso".
    // Tu código:
+   if(valor === true) return "Soy verdadero";
+
+   return "Soy falso";
 }
 
 function tieneTresDigitos(num) {
    // Si el número recibido tiene tres dígitos retornar True.
    // Caso contrario, retornar False.
    // Tu código:
+   if(num >= 100 && num <= 999) return true;
+   return false;
 }
 
 function doWhile(num) {
@@ -108,6 +122,13 @@ function doWhile(num) {
    // Retornar el valor final.
    // Utilizar el bucle Do-While.
    // Tu código:
+   
+   let limite = 0;
+   do {
+   num += 5;
+   limite++;
+   } while (limite < 8);
+   return num;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
