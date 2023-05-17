@@ -3,34 +3,49 @@
 function devolverPrimerElemento(array) {
    // Retornar el primer elemento del arreglo recibido por parámetro.
    // Tu código:
+   return array[0];
 }
 
 function devolverUltimoElemento(array) {
    // Retornar el último elemento del arreglo recibido por parámetro.
    // Tu código:
+   return array.pop();
 }
 
 function obtenerLargoDelArray(array) {
    // Retornar la longitud del arreglo recibido por parámetro.
    // Tu código:
+   return array.length;
 }
 
 function incrementarPorUno(array) {
    // El arreglo recibido por parámetro contiene números.
    // Retornar un arreglo con los elementos incrementados en +1.
    // Tu código:
+// const newArray = []
+ 
+// for (let i = 0; i < array.length; i++) {
+//    newArray.push( array[i]+1 );  
+// } return newArray;
+
+ return array.map((el) => el + 1)
 }
+
 
 function agregarItemAlFinalDelArray(array, elemento) {
    // Agrega el "elemento" al final del arreglo recibido.
    // Retorna el arreglo.
    // Tu código:
+  array.push(elemento);
+  return array;
 }
 
 function agregarItemAlComienzoDelArray(array, elemento) {
    // Agrega el "elemento" al comienzo del arreglo recibido.
    // Retorna el arreglo.
    // Tu código:
+   array.unshift(elemento);
+   return array;
 }
 
 function dePalabrasAFrase(palabras) {
@@ -39,30 +54,46 @@ function dePalabrasAFrase(palabras) {
    // con un espacio entre cada palabra.
    // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'.
    // Tu código:
+   return palabras.join(" ");
 }
 
 function arrayContiene(array, elemento) {
    // Verifica si el elemento existe dentro del arreglo recibido.
    // Retornar True si está, o False si no está.
    // Tu código:
+   return array.includes(elemento);
+
+   
+
 }
 
 function agregarNumeros(arrayOfNums) {
    // El parámetro "arrayOfNums" debe ser un arreglo de números.
    // Suma todos los elementos y retorna el resultado.
    // Tu código:
+ let suma = 0
+
+  for (let i = 0; i < arrayOfNums.length; i++) {
+   suma += arrayOfNums[i];
+  } return suma;
 }
 
 function promedioResultadosTest(resultadosTest) {
    // El parámetro "resultadosTest" es un arreglo de números.
    // Itera (en un bucle) los elementos del arreglo y devuelve el promedio de las notas.
    // Tu código:
+
+   let suma = 0;
+   for (let notas of resultadosTest) suma += notas;
+   let promedio = suma / resultadosTest.length;
+   return promedio;
 }
 
 function numeroMasGrande(arrayOfNums) {
    // El parámetro "arrayOfNums" es un arreglo de números.
    // Retornar el número más grande.
    // Tu código:
+   return Math.max(...arrayOfNums);
 }
 
 function multiplicarArgumentos() {
@@ -70,11 +101,24 @@ function multiplicarArgumentos() {
    // Si no se pasan argumentos retorna 0. Si se pasa un argumento, simplemente retórnalo.
    // [PISTA]: "arguments" es un arreglo.
    // Tu código:
-}
 
+if (arguments.length === 0)return 0;
+if (arguments.length === 1)return arguments[0];
+else{
+
+   let producto = 1;
+   for (let i = 0; i < arguments.length; i++)producto *= arguments[i];
+
+   return producto;
+}
+}
 function cuentoElementos(array) {
    // Desarrolla una función que retorne la cantidad de elementos del arreglo cuyo valor sea mayor que 18.
    // Tu código:
+   let contador = 0;
+   for (let i = 0; i < array.length; i++)
+   if (array[i] > 18)contador++;
+   return contador;
 }
 
 function diaDeLaSemana(numeroDeDia) {
@@ -82,18 +126,56 @@ function diaDeLaSemana(numeroDeDia) {
    // Realiza una función que, dado el número del día de la semana, retorne: "Es fin de semana"
    // si el día corresponde a "Sábado" o "Domingo", y "Es dia laboral" en caso contrario.
    // Tu código:
+   // Domingo   =1
+   // Lunes     =2
+   // Martes    =3
+   // Miercoles =4
+   // Jueves    =5
+   // Viernes   =6
+   // Sabado    =7
+   // if("Sábado"===7 && "Domingo"===1)return "Es fin de semana";
+   // return "Es dia laboral";
+   switch (numeroDeDia) {
+      case 1: return"Es fin de semana"
+         break;
+      case 2: return"Es dia laboral"
+         break;
+      case 3:return"Es dia laboral"
+         break;
+      case 4:return"Es dia laboral"
+         break;
+      case 5:return"Es dia laboral"
+         break;
+      case 6:return"Es dia laboral"
+         break;
+         case 7:return"Es fin de semana"
+         break;
+         default:"Dia No existe"
+         break;
+   }
 }
 
 function empiezaConNueve(num) {
    // Esta función recibe por parámetro un número.
    // Debe retornar True si el entero inicia con 9 y False en otro caso.
    // Tu código:
+   let numStr = num.toString(); //Paso los parametros de numero a la cadena de texto
+
+   if (numStr.charAt(0) === "9")return true;//.charAt es un metodo para obtener el carácter en la posición 0
+   return false;
 }
 
 function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar True.
    // Caso contrario retornar False.
    // Tu código:
+   if (array.length === 0)return true;
+  
+   for (let i = 1; i < array.length; i++)// Comparamos cada elemento con el primero
+
+   if (array[i] !== array[0])return false; // Si encontramos un elemento diferente, retornamos false
+
+    return true;// Si no encontramos elementos diferentes, retornamos true
 }
 
 function mesesDelAño(array) {
@@ -101,18 +183,41 @@ function mesesDelAño(array) {
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
+   let arrayN = [];
+   
+   for (let i = 0; i < array.length; i++)
+   if(array[i]==="Enero" || array[i]==="Marzo" || array[i]==="Noviembre")
+   arrayN.push(array[i]);
+   
+   if(arrayN.length < 3) return"No se encontraron los meses pedidos";
+
+   return arrayN;
 }
 
 function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
+
+   let tablaSeis= [];
+
+   for (let i = 0; i < 11; i++){
+   tablaSeis[i]= 6 * [i];
+}
+  return tablaSeis;
 }
 
 function mayorACien(array) {
    // La función recibe un arreglo con enteros entre 0 y 200.
    // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
    // Tu código:
+   let Mcien = [];
+
+   for (let i = 0; i < array.length; i++)
+   if(array[i] > 100) Mcien.push(array[i]);
+
+   return Mcien;
+
 }
 
 /* ----------------------------------------------------------------------------------
@@ -126,6 +231,18 @@ function breakStatement(num) {
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
+   let valor = [];
+   let suma = num;
+
+   for (var i = 0; i < 10; i++){
+   suma = suma+2;
+
+   if(suma === i) break;
+   else valor.push(suma);
+}
+   if(i < 10) return "Se interrumpió la ejecución";
+
+    else return valor;
 }
 
 function continueStatement(num) {
@@ -135,6 +252,17 @@ function continueStatement(num) {
    // se continua con la siguiente iteración.
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
+   let valor = [];
+   let suma = num;
+
+   for (var i = 0; i < 10; i++){
+
+   if(i === 5) continue;
+   else suma = suma +2;
+   valor.push(suma);
+}
+   return valor;
+
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
